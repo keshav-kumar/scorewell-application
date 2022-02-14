@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Score Well - An Institute for Civil Services Examination</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="shortcut icon" href="images/fav.jpg">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fontawsom-all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <link href="css/layout.css" rel="stylesheet" type="text/css">
+</head>
+
+<body id="top">
+    <header>
+
+        <div id="nav-head" class="header-nav scroll-to-fixed-fixed" style="z-index: 1000; position: fixed; top: 0px; margin-left: 0px; width: 1349px; left: 0px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-3 no-padding col-sm-12 nav-img">
+                        <a href="index.html" target="_top"><img src="images/logo.jpg" alt=""></a>
+                        <a data-toggle="collapse" data-target="#menu" href="#menu"><i class="fas d-block d-md-none small-menu fa-bars"></i></a>
+                    </div>
+                    <div id="menu" class="col-lg-8 col-md-9 d-none d-md-block nav-item">
+                        <ul>
+                            <li><a href="/home">Home</a></li>
+                            <li><a href="/about">About Us</a></li>
+                            <!--   <li><a href="#services">Services</a></li> 
+                           <li><a href="#blog">Blog</a></li>  -->
+                            <li><a href="/course-info">Courses</a></li>
+                            <li><a href="/course-info">Careers</a></li>
+
+                            <li><a href="/contact">Contact Us</a></li>
+
+                        </ul>
+                    </div>
+
+
+
+                    <div class="col-sm-2 d-none d-lg-block appoint">
+                        <form th:action="@{/registration}" method="get">
+                            <button class="logout-btn btn-md btn-warning btn-block" type="Submit">User Registration</button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div style="display: block; width: 1349px; height: 81px; float: none;"></div>
+    </header>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="wrapper row1">
+        <div id="topbar" class="clear">
+            <nav id="mainav" class="fl_left">
+                <ul class="clear">
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/about">About us</a></li>
+                    <li><a href="/course-info">Courses</a></li>
+                    <li><a href="/career">Careers</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                    <!-- <li><a href="/resource">Resource</a></li> -->
+                </ul>
+            </nav>
+            <!-- <div id="search" class="fl_right">
+				<form class="clear" method="post" action="#">
+					<fieldset>
+						<legend>Search:</legend>
+						<input type="text" value="" placeholder="Search Here">
+						<button class="fa fa-search" type="submit" title="Search">
+							<em>Search</em>
+						</button>
+					</fieldset>
+				</form>
+			</div> -->
+        </div>
+    </div>
+
+
+
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="wrapper row2">
+        <div class="overlay">
+            <div id="breadcrumb" class="clear">
+                <ul>
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/daily-questions?course=IAS">IAS question</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+
+    <div class="wrapper row3">
+        <main class="container clear">
+            <!-- main body -->
+            <!-- ################################################################################################ -->
+            <div class="sidebar one_quarter first mt-3">
+                <!-- ################################################################################################ -->
+                <h6>Course List</h6>
+                <nav class="sdb_holder">
+                    <ul>
+                        <li><a href="/daily-questions?course=IAS&subject=Agri">Agriculture</a></li>
+                        <li><a href="/daily-questions?course=IAS&subject=GS">General studies</a></li>
+                        <!-- <li><a href="#">Essay</a></li> -->
+                    </ul>
+                </nav>
+
+                <div class="sdb_holder">
+                    <h6>Evaluated Answer Sheets</h6>
+                    <form action="/set-list" method="get">
+
+                        <div>
+                            &nbsp;<label for="name">Phone No. <span>*</span></label> <input type="text" name="phone" id="phone" value="" size="22">
+                        </div>
+                        <div>
+                            &nbsp;<label for="email">Email <span>*</span></label> <input type="text" name="email" id="email" value="" size="22">
+                        </div>
+                        <div>
+                            &nbsp;<input type="submit" value="Submit" id="submit">
+                            <span id="result"></span>
+                        </div>
+                    </form>
+                </div>
+                <!-- ################################################################################################ -->
+            </div>
+            <!-- ################################################################################################ -->
+            <!-- ################################################################################################ -->
+            <div class="content three_quarter mt-3">
+                <!-- ################################################################################################ -->
+                <h1 class="text-center">
+                    <B>Score Well Answer Writing Program</B>
+                </h1>
+                <p class="text-justify">Answer writing plays a very important role in Civil Services Examination. Regular answer writing and its sincere evaluation is important to score very high marks in mains exam which ensures selection with good rank.</p>
+                <p class="text-justify">Keeping this in mind, Score Well has started an answer writing program where important and previous years questions in GS/Agriculture will be put and students can write their answers and get it evaluated. Here, one or two questions, according
+                    to a schedule, will be put on a daily basis.</p>
+                <p class="text-justify">Students are expected that they write and submit their answers on a daily basis to get the maximum advantage. It will develop the necessary answer writing skills, boost confidence and makes one more disciplined to face the exam successfully.
+                </p>
+                <p class="text-justify">
+                    <h1 class="text-left">
+                        <B><u>Notes:</u></B>
+                    </h1>
+                </p>
+                <ul>
+                    <li>Please upload good quality scanned pdf file for proper evaluation.</li>
+                    <li>Adhere to necessary word limit where required. Can illustrate with suitable facts, diagrams, case studies and relevant examples where required.</li>
+                    <li>The program runs on a subscription basis. </li>
+                    <li>Fees: Rs 4500 for 90 Days</li>
+                </ul>
+
+                <div id="gen_study">
+                    <div id="comments">
+
+                        <p class="text-justify">
+                            <h1 class="text-left">
+                                <B><u>Test Papers:</u></B>
+                            </h1>
+                        </p>
+                        <ul>
+
+                            <div th:each="queSetDesc : ${questionSets}">
+                                <li>
+                                    <article>
+                                        <header>
+                                            <address>
+												<section class="clear">
+													<div class="one_half first">
+														<label th:text="${queSetDesc.releaseDate}"></label>
+													</div>
+													<div class="one_half">
+														<a th:href="@{/question-set?(set-name=${queSetDesc.setName})}"><label th:text="${queSetDesc.setName}"></label></a> 
+													</div>
+												</section>
+											</address>
+                                        </header>
+                                    </article>
+                                </li>
+
+                            </div>
+
+
+                            <!-- <c:forEach var="queSetDesc" items="${questionSets}">
+							<li><article> 
+								<header>
+									<address>
+					                	${queSetDesc.releaseDate} : <a href="/question-set?set-name=${queSetDesc.setName}" target="_blank"><font color="red">${queSetDesc.setName}</font></a>
+					                	<a href="pdf/question/${queSetDesc.pdfFileName}" target="_blank"><img src="icon/pdf.png" /> </a>
+									</address>
+								</header> 
+							</article></li>
+						
+						</c:forEach> -->
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- ################################################################################################ -->
+            </div>
+            <!-- ################################################################################################ -->
+            <!-- / main body -->
+            <div class="clear"></div>
+        </main>
+    </div>
+
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+
+
+    <div class="wrapper row5">
+        <footer id="footer" class="clear">
+            <!-- ################################################################################################ -->
+            <div class="one_third first">
+                <h6 class="title">Address</h6>
+                <address class="btmspace-15">
+					Score Well<br>Sector-11<br>Dwarka, New Delhi <br> Delhi (India), 110075
+				</address>
+                <ul class="nospace">
+                    <li class="btmspace-10"><span class="fa fa-phone"></span> 8092480750</li>
+                    <li><span class="fa fa-envelope-o"></span> teamscorewell@gmail.com</li>
+                </ul>
+            </div>
+            <div class="one_third">
+                <h6 class="title">Quick Links</h6>
+                <ul class="nospace linklist footer-text-link">
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/about">About us</a></li>
+                    <li><a href="/course-info">Courses</a></li>
+                    <li><a href="/career">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="one_third">
+
+                <!-- <div id="logo" class="fl_left">
+					<h1>
+						<a href="/home">Score Well</a>
+					</h1>
+					
+				</div> -->
+
+                <div class="footer_section footer_about">
+                    <div class="footer_logo_text">Score<span> Well</span></div>
+                    <div class="footer_social">
+                        <ul class="nospace linklist">
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="wrapper row6">
+        <div id="copyright" class="clear">
+            <!-- ################################################################################################ -->
+            <p class="fl_left">
+                Copyright &copy; 2019 - All Rights Reserved - <a href="/home">Score Well</a>
+            </p>
+            <!-- ################################################################################################ -->
+        </div>
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+    <!-- JAVASCRIPTS -->
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.backtotop.js"></script>
+    <script src="js/jquery.mobilemenu.js"></script>
+
+</body>
+
+</html>

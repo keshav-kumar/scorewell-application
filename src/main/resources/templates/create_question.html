@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Score Well Home</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="css/layout.css" rel="stylesheet" type="text/css" media="all">
+<!-- <link href="css/about.css" rel="stylesheet" type="text/css" media="all"> -->
+<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap4/bootstrap.min.css"> -->
+<link rel="stylesheet" type="text/css" href="css/custom.css">
+<link rel="stylesheet" type="text/css" href="css/responsive.css">
+
+</head>
+<body id="top">
+	<!-- ################################################################################################ -->
+	<!-- ################################################################################################ -->
+	<!-- ################################################################################################ -->
+	<div class="wrapper row0">
+		<header id="header" class="hoc">
+			<div id="logo" class="fl_left">
+				<h1>
+					<a href="/home">Score Well</a>
+				</h1>
+			</div>
+			<!-- <div id="logo" class="fl_left">
+						<img src="img/logo.png" alt="">
+					</div> -->
+			<div class="fl_right">
+				<ul class="nospace heading">
+					<li><a href="#"><font color="blue"><B>Login</B></font></a></li>
+				</ul>
+			</div>
+		</header>
+	</div>
+	<!-- ################################################################################################ -->
+	<!-- ################################################################################################ -->
+	<!-- ################################################################################################ -->
+	<div class="wrapper row1">
+		<div id="topbar" class="clear">
+			<nav id="mainav" class="fl_left">
+				<ul class="clear">
+					<li><a href="/home">Home</a></li>
+					<li><a href="/admin">Admin</a></li>
+					<li><a href="/create-question">Create Set</a></li>
+					<li><a href="/admin-answer-list">Review Answers</a></li>
+				</ul>
+			</nav>
+			<div id="search" class="fl_right">
+				<form class="clear" method="post" action="#">
+					<fieldset>
+						<legend>Search:</legend>
+						<input type="text" value="" placeholder="Search Here">
+						<button class="fa fa-search" type="submit" title="Search">
+							<em>Search</em>
+						</button>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row2">
+	<div class="overlay">
+		<div id="breadcrumb" class="clear">
+			<ul>
+				<li><a href="/home">Home</a></li>
+				<li><a href="/ias-daily-questions">IAS question</a></li>
+				<li><a href="/create-question">Create Question set</a></li>
+			</ul>
+		</div>
+	</div>
+
+</div>
+
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+	<section id="cta" class="clear">
+
+		<div id="content">
+			<h2>Create Your Question Set</h2>
+
+			<form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+
+				<div class="one_quarter first">
+					<label for="course">Course <span>*</span></label> <select
+						name="course" id="course">
+						<option>IAS</option>
+						<option>Professional</option>
+						<option>Medical</option>
+					</select>
+				</div>
+
+				<div class="one_quarter" size="22">
+					<label for="subject">Subject <span>*</span></label> <select
+						name="subject" id="subject">
+						<option>Agri</option>
+						<option>GS</option>
+					</select>
+				</div>
+
+				<!-- <div class="one_quarter">
+					<label for="name">Subject <span>*</span></label> 
+					<input type="text" name="subject" id="subject" value="" size="22" required="required">
+				</div> -->
+				<!-- <div class="one_quarter">
+					<label for="phone">Set Name<span>*</span></label> 
+					<input type="text" name="setName" id="setName" value="" size="22" required="required">
+				</div> -->
+				<div class="one_quarter">
+					<label for="email">Release date<span>*</span></label>
+					<!-- <input type="text" id="datepicker"></p> -->
+					<input type="text" id="datepicker">
+					</p>
+				</div>
+
+				<!-- <div class="one_quarter first"> -->
+				<div class="block clear">
+
+
+					<div id='QuestionBoxesGroup'>
+						<div id="QuestionBoxDiv1">
+							<label>Question 1 : </label>
+							<textarea name="que1" id="que1" cols="100" rows="3"></textarea>
+							<!-- <input type='textarea' id='textbox1'> -->
+						</div>
+					</div>
+
+
+					<div class="one_quarter first">
+						<input type='button' value='Add Question' id='addQuestion' class="add_question_button">
+					</div>
+					
+					<div class="one_quarter">
+						<input type='button' value='Remove Question' id='removeQuestion' class="delete_question_button">
+					</div>
+
+					<!-- <input type='button' value='Add Question' id='addQuestion' class="add_button">
+					<input type='button' value='Remove Question' id='removeQuestion' class="delete_button">
+					<input type='button' value='Get Question' id='getQuestion'>
+					<button type='button' id="getQuestion" class="delete_button">Get Question</button> -->
+										
+
+					<!-- &nbsp;<label for="name">Question 1. <span>*</span></label>
+
+					<textarea name="que1" id="que1" cols="100" rows="3"></textarea> -->
+				</div>
+				
+				<!-- <div class="block clear">
+					&nbsp;<label for="upload">Upload <span>*</span></label> <input
+						id="upload" type="file" name="file" value="Upload File">
+				</div> -->
+				<div>
+					&nbsp; <input type="submit" value="Submit" id="submit" class="orange_button"> <span
+						id="result"></span>
+				</div>
+			</form>
+		</div>
+	</section>
+
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<div class="wrapper row3">
+	<section id="cta"></section>
+</div>
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+<!-- ################################################################################################ -->
+
+<div class="wrapper row5">
+		<footer id="footer" class="clear">
+			<!-- ################################################################################################ -->
+			<div class="one_third first">
+				<h6 class="title">Address</h6>
+				<address class="btmspace-15">
+					Score Well<br>Sector-11<br>Dwarka, New Delhi <br> Delhi (India), 110075
+				</address>
+				<ul class="nospace">
+					<li class="btmspace-10"><span class="fa fa-phone"></span> 8092480750</li>
+					<li><span class="fa fa-envelope-o"></span> teamscorewell@gmail.com</li>
+				</ul>
+			</div>
+			<div class="one_third">
+				<h6 class="title">Quick Links</h6>
+				<ul class="nospace linklist">
+					<li><a href="/home">Home</a></li>
+					<li><a href="/about">About us</a></li>
+					<li><a href="/course-info">Courses</a></li>
+					<li><a href="/career">Careers</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</div>
+			<div class="one_third">
+			
+				<!-- <div id="logo" class="fl_left">
+					<h1>
+						<a href="/home">Score Well</a>
+					</h1>
+					
+				</div> -->
+				
+				<div class="footer_section footer_about">
+						<div class="footer_logo_text">Score<span> Well</span></div>
+						<div class="footer_social">
+							<ul class="nospace linklist">
+								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+					</div>
+			</div>
+		</footer>
+	</div>
+	<!-- ################################################################################################ -->
+	<!-- ################################################################################################ -->
+	<!-- ################################################################################################ -->
+	<div class="wrapper row6">
+		<div id="copyright" class="clear">
+			<!-- ################################################################################################ -->
+			<p class="fl_left">
+				Copyright &copy; 2019 - All Rights Reserved - <a href="/home">Score Well</a>
+			</p>
+			<!-- ################################################################################################ -->
+		</div>
+	</div>
+	<!-- ################################################################################################ -->
+	<!-- ################################################################################################ -->
+	<!-- ################################################################################################ -->
+	<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
+	<!-- JAVASCRIPTS -->
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.backtotop.js"></script>
+	<script src="js/jquery.mobilemenu.js"></script>
+	<script src="js/bootstrap-datepicker.js"></script>
+	
+	<script src="js/create_question.js"></script>
+
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
+</body>
+</html>
