@@ -1,241 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/common/dashboard-layout/dash-layout">
 <head>
-<title>Score Well Home</title>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="css/layout.css" rel="stylesheet" type="text/css" media="all">
-<!-- <link href="css/about.css" rel="stylesheet" type="text/css" media="all"> -->
-<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap4/bootstrap.min.css"> -->
-<link rel="stylesheet" type="text/css" href="css/custom.css">
-<link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
 
 </head>
-<body id="top">
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<div class="wrapper row0">
-		<header id="header" class="hoc">
-			<div id="logo" class="fl_left">
-				<h1>
-					<a href="/home">Score Well</a>
-				</h1>
-			</div>
-			<!-- <div id="logo" class="fl_left">
-						<img src="img/logo.png" alt="">
-					</div> -->
-			<div class="fl_right">
-				<ul class="nospace heading">
-					<li><a href="#"><font color="blue"><B>Login</B></font></a></li>
-				</ul>
-			</div>
-		</header>
-	</div>
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<div class="wrapper row1">
-		<div id="topbar" class="clear">
-			<nav id="mainav" class="fl_left">
-				<ul class="clear">
-					<li><a href="/home">Home</a></li>
-					<li><a href="/admin">Admin</a></li>
-					<li><a href="/create-question">Create Set</a></li>
-					<li><a href="/admin-answer-list">Review Answers</a></li>
-				</ul>
-			</nav>
-			<div id="search" class="fl_right">
-				<form class="clear" method="post" action="#">
-					<fieldset>
-						<legend>Search:</legend>
-						<input type="text" value="" placeholder="Search Here">
-						<button class="fa fa-search" type="submit" title="Search">
-							<em>Search</em>
-						</button>
-					</fieldset>
-				</form>
-			</div>
-		</div>
-	</div>
-	
-	
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<div class="wrapper row2">
-		<div class="overlay">
-			<div id="breadcrumb" class="clear">
-				<ul>
-					<li><a href="/admin">Admin</a></li>
-				</ul>
-			</div>
-		</div>
+<body>
 
-	</div>
+<div layout:fragment="content">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Dashboard</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard v1</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-
-	<div class="wrapper row3">
-		<main class="container clear"> <!-- main body --> <!-- ################################################################################################ -->
-		<div class="sidebar one_quarter first">
-			<!-- ################################################################################################ -->
-			<h6>Course List</h6>
-			<nav class="sdb_holder">
-			<ul>
-				<li><a href="/admin?course=IAS&subject=Agri">Agriculture</a></li>
-				<li><a href="/admin?course=IAS&subject=GS">General studies</a></li>
-				<!-- <li><a href="#">Essay</a></li> -->
-			</ul>
-			</nav>
-			
-			<!-- ################################################################################################ -->
-		</div>
-		<!-- ################################################################################################ -->
-		<!-- ################################################################################################ -->
-		<div class="content three_quarter">
-			<!-- ################################################################################################ -->
-			<div id="gen_study">
-				<div id="comments">
-					<h2>Question Sets</h2>
-					<ul>
-					
-						<div th:each="queSetDesc : ${questionSets}">
-							<li><article>
-									<header>
-										<address>
-											<section class="clear">
-												<div class="one_third first">
-													<label th:text="${queSetDesc.releaseDate}"></label>
-												</div>
-												<div class="one_third">
-													<a th:href="@{/question-set?(set-name=${queSetDesc.setName})}"><label th:text="${queSetDesc.setName}"></label></a> 
-												</div>
-												<div class="one_third">
-													 <button id="deleteQueSet" class="delete_button" th:value=${queSetDesc.setName}>Delete</button>
-												</div>
-											</section>
-										</address>
-									</header>
-								</article>
-							</li>
-						</div>
-					
-					
-					
-					
-					
-						<!-- <c:forEach var="queSetDesc" items="${questionSets}">
-							<li><article> 
-								<header>
-										<address>
-											${queSetDesc.releaseDate} <a
-												href="/question-set?set-name=${queSetDesc.setName}"
-												target="_blank">${queSetDesc.setName}</a> <a
-												href="pdf/question/${queSetDesc.pdfFileName}"
-												target="_blank"><img src="icon/pdf.png" /> </a>
-
-
-											<div class="fl_right">
-												<button id="deleteQueSet" class="delete_button" value=${queSetDesc.setName}>Delete</button>
-											</div>
-
-											<div class="fl_right">
-												<input type="submit" value="Delete" id="deleteQueSet">
-											</div>
-										</address>
-										
-									</header> 
-							</article></li>
-						
-						</c:forEach> -->
-					
-					</ul>
+    <!-- Main content -->
+    <!-- End Main content -->
+	<div class="col-md-12">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<h4 class="m-0">Question Sets</h4>
+					</div>
+					<div class="card-body">
+						<table id="example" class="table table-striped table-sm" style="width:100%">
+							<thead>
+								<tr>
+									<td><b>Release Date</b></td>
+									<td><b>Question Paper Set</b></td>
+									<td><b>Preview</b></td>
+									<td><b>Action</b></td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="queSetDesc :${questionSets}">
+									<td><span th:text="${queSetDesc.releaseDate}" th:remove="tag"></span></td>
+									<td><span th:text="${queSetDesc.setName}" th:remove="tag"></span></td>
+									<td>
+										<i class="fa-solid fa-file-pdf fa-3x"></i>
+									</td>
+									<td><button id="deleteQueSet" class="btn btn-danger">Delete</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
-			<!-- ################################################################################################ -->
-		</div>
-		<!-- ################################################################################################ -->
-		<!-- / main body -->
-		<div class="clear"></div>
-		</main>
-	</div>
-	
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	
-	<div class="wrapper row5">
-		<footer id="footer" class="clear">
-			<!-- ################################################################################################ -->
-			<div class="one_third first">
-				<h6 class="title">Address</h6>
-				<address class="btmspace-15">
-					Score Well<br>Sector-11<br>Dwarka, New Delhi <br> Delhi (India), 110075
-				</address>
-				<ul class="nospace">
-					<li class="btmspace-10"><span class="fa fa-phone"></span> 8092480750</li>
-					<li><span class="fa fa-envelope-o"></span> teamscorewell@gmail.com</li>
-				</ul>
-			</div>
-			<div class="one_third">
-				<h6 class="title">Quick Links</h6>
-				<ul class="nospace linklist">
-					<li><a href="/home">Home</a></li>
-					<li><a href="/about">About us</a></li>
-					<li><a href="/course-info">Courses</a></li>
-					<li><a href="/career">Careers</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
-			</div>
-			<div class="one_third">
 			
-				<!-- <div id="logo" class="fl_left">
-					<h1>
-						<a href="/home">Score Well</a>
-					</h1>
-					
-				</div> -->
-				
-				<div class="footer_section footer_about">
-						<div class="footer_logo_text">Score<span> Well</span></div>
-						<div class="footer_social">
-							<ul class="nospace linklist">
-								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
-					</div>
-			</div>
-		</footer>
-	</div>
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<div class="wrapper row6">
-		<div id="copyright" class="clear">
-			<!-- ################################################################################################ -->
-			<p class="fl_left">
-				Copyright &copy; 2019 - All Rights Reserved - <a href="/home">Score Well</a>
-			</p>
-			<!-- ################################################################################################ -->
 		</div>
 	</div>
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
-	<!-- JAVASCRIPTS -->
-	<script src="js/jquery.js"></script>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/jquery.backtotop.js"></script>
-	<script src="js/jquery.mobilemenu.js"></script>
-	
-	<script src="js/admin-question.js"></script>
-	
+
+</div>
+
 </body>
 </html>

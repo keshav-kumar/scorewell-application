@@ -1,87 +1,114 @@
-    <div class="wrapper row5">
-        <footer id="footer" class="clear">
-            <!-- ################################################################################################ -->
-            <div class="one_third first">
-                <h6 class="title">Address</h6>
-                <address class="btmspace-15">
-					Score Well<br>Sector-11<br>Dwarka, New Delhi <br> Delhi (India), 110075
-				</address>
-                <ul class="nospace">
-                    <li class="btmspace-10"><span class="fa fa-phone"></span> 8092480750</li>
-                    <li><span class="fa fa-envelope-o"></span> teamscorewell@gmail.com</li>
-                </ul>
-            </div>
-            <div class="one_third">
-                <h6 class="title">Quick Links</h6>
-                <ul class="nospace linklist footer-text-link">
-                    <li><a href="/home">Home</a></li>
-                    <li><a href="/about">About us</a></li>
-                    <li><a href="/course-info">Courses</a></li>
-                    <li><a href="/career">Careers</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="one_third">
+<footer id="footer" class="footer" th:fragment="foot">
 
-                <!-- <div id="logo" class="fl_left">
-					<h1>
-						<a href="/home">Score Well</a>
-					</h1>
-					
-				</div> -->
+	<div class="footer-newsletter">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-12 text-center">
+					<h4>Our Newsletter</h4>
+					<p>Tamen quem nulla quae legam multos aute sint culpa legam
+						noster magna</p>
+				</div>
+				<div class="col-lg-6">
+					<form action="" method="post" autocomplete="off">
+						<input type="email" name="email" id="subscrib_email"
+							placeholder="Enter Email"><input type="submit"
+							id="submit" value="Subscribe">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
-                <div class="footer_section footer_about">
-                    <div class="footer_logo_text">Score<span> Well</span></div>
-                    <div class="footer_social">
-                        <ul class="nospace linklist">
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </div>
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <div class="wrapper row6">
-        <div id="copyright" class="clear">
-            <!-- ################################################################################################ -->
-            <p class="fl_left">
-                Copyright &copy; 2019 - All Rights Reserved - <a href="/home">Score Well</a>
-            </p>
-            <!-- ################################################################################################ -->
-        </div>
-    </div>
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <!-- ################################################################################################ -->
-    <a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
-    <!-- JAVASCRIPTS -->
-    <script>
-        window.onscroll = function() {
-            myFunction()
-        };
+	<div class="footer-top">
+		<div class="container">
+			<div class="row gy-4">
+				<div class="col-lg-5 col-md-12 footer-info">
+					<a href="index.html" class="logo d-flex align-items-center"> <img
+						src="assets/img/logo.png" alt=""> <span>ScoreWell</span>
+					</a>
+					<p>Score Well is a premier organization in test preparation and
+						provides quality guidance to students to achieve their academic
+						and career goals.</p>
+					<div class="social-links mt-3">
+						<a href="#" class="twitter"><i class="bi bi-twitter"></i></a> <a
+							href="#" class="facebook"><i class="bi bi-facebook"></i></a> <a
+							href="#" class="instagram"><i class="bi bi-instagram"></i></a> <a
+							href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+					</div>
+				</div>
 
-        var navbar = document.getElementById("navbar");
-        var sticky = navbar.offsetTop;
+				<div class="col-lg-2 col-6 footer-links">
+					<h4>Useful Links</h4>
+					<ul>
+						<li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
+						<li><i class="bi bi-chevron-right"></i> <a href="#">About
+								us</a></li>
+						<li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
+						<li><i class="bi bi-chevron-right"></i> <a href="#">Terms
+								of service</a></li>
+						<li><i class="bi bi-chevron-right"></i> <a href="#">Privacy
+								policy</a></li>
+					</ul>
+				</div>
 
-        function myFunction() {
-            if (window.pageYOffset >= sticky) {
-                navbar.classList.add("sticky")
-            } else {
-                navbar.classList.remove("sticky");
-            }
-        }
-    </script>
-    </script>
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+				<div class="col-lg-2 col-6 footer-links">
+					<h4>Our Services</h4>
+					<ul>
+						<li><i class="bi bi-chevron-right"></i> <a href="#">Web
+								Design</a></li>
+						<li><i class="bi bi-chevron-right"></i> <a href="#">Web
+								Development</a></li>
+						<li><i class="bi bi-chevron-right"></i> <a href="#">Product
+								Management</a></li>
+						<li><i class="bi bi-chevron-right"></i> <a href="#">Marketing</a></li>
+						<li><i class="bi bi-chevron-right"></i> <a href="#">Graphic
+								Design</a></li>
+					</ul>
+				</div>
 
-    <script src="js/jquery.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.backtotop.js"></script>
-    <script src="js/jquery.mobilemenu.js"></script>
+				<div
+					class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+					<h4>Contact Us</h4>
+					<p>
+						A108 Adam Street <br> New York, NY 535022<br> United
+						States <br>
+						<br> <strong>Phone:</strong> +1 5589 55488 55<br> <strong>Email:</strong>
+						info@example.com<br>
+					</p>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="copyright">
+			&copy; Copyright <strong><span>ScoreWell</span></strong>. All Rights
+			Reserved
+		</div>
+		<div class="credits">
+			Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+		</div>
+	</div>
+	<a href="#"
+		class="back-to-top d-flex align-items-center justify-content-center"><i
+		class="bi bi-arrow-up-short"></i></a>
+
+	<!-- Vendor JS Files -->
+	<script src="js/jquery.js"></script>
+	<script src="assets/vendor/purecounter/purecounter.js"></script>
+	<script src="assets/vendor/bootbox/bootbox.js"></script>
+	<script src="assets/vendor/aos/aos.js"></script>
+	<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+	<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+	<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+	<script src="assets/vendor/php-email-form/validate.js"></script>
+	<script src="js/home.js"></script>
+
+	<!-- Template Main JS File -->
+	<script src="assets/js/main.js"></script>
+
+</footer>
+<!-- End Footer -->

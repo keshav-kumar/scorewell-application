@@ -42,12 +42,16 @@ function upload_review() {
         timeout: 600000,
         success: function (data) {
             $("#result").text(data);
+            $("#result").removeClass();
+            $("#result").addClass('alert alert-success');
             console.log("SUCCESS : ", data);
             $("#submit").prop("disabled", true);
 
         },
         error: function (e) {
         	$("#result").text("Error: "+e.responseText);
+        	$("#result").removeClass();
+            $("#result").addClass('alert alert-danger');
             console.log("ERROR : ", e.responseText);
             $("#submit").prop("disabled", false);
 

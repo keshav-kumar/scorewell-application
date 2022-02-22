@@ -39,14 +39,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http.
                 authorizeRequests()
-                .antMatchers("/").permitAll()
-                .antMatchers("/home").permitAll()
-                .antMatchers("/about").permitAll()
-                .antMatchers("/course-info").permitAll()
-                .antMatchers("/career").permitAll()
-                .antMatchers("/contact").permitAll()
-                .antMatchers(loginPage).permitAll()
-                .antMatchers("/registration").permitAll()
+                .antMatchers("/", "/assets/**","/home","/about","/course-info","/career","/contact","/registration","/login").permitAll()
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
                 .anyRequest()
                 .authenticated()
@@ -61,6 +54,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and().logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher(logoutPage))
                 .logoutSuccessUrl(loginPage).and().exceptionHandling();
+        http.formLogin().defaultSuccessUrl("/set-list", true);
     }
 
     @Override

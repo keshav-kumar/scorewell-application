@@ -23,7 +23,7 @@ $(document).ready(function() {
 	         .attr("id", 'QuestionBoxDiv' + queCounter);
 	                
 	    newQuestionBoxDiv.after().html('<label>Question '+ queCounter + ' : </label>' +
-	    	  '<textarea name="que' + queCounter + '"id="que'+ queCounter +'" cols="100" rows="3"></textarea>'
+	    	  '<textarea name="que' + queCounter + '"id="que'+ queCounter +'" class="form-control"></textarea>'
 //	 '<input type="text" name="textbox' + queCounter + '"id="textbox'+ queCounter + '" value="" >'
     );
 	            
@@ -83,7 +83,8 @@ function fire_ajax_submit(queCounter) {
 
 	if (errorMasg != "" ){
 		$("#result").text(errorMasg);
-
+		$("#result").removeClass();
+		$("#result").addClass('alert alert-danger');
 		alert(errorMasg);
 
 	} else {
@@ -98,12 +99,15 @@ function fire_ajax_submit(queCounter) {
 			cache : false,
 			timeout : 600000,
 			success : function(data) {
-
+				$("#result").removeClass();
+				$("#result").addClass('alert alert-success');
 				$("#result").text(data);
 				console.log("SUCCESS : ", data);
 				$("#submit").prop("disabled", true);
 			},
 			error : function(e) {
+				$("#result").removeClass();
+				$("#result").addClass('alert alert-danger')
 				$("#result").text(e.responseText);
 				console.log("ERROR : ", e);
 				$("#submit").prop("disabled", false);

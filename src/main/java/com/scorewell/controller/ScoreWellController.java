@@ -64,6 +64,14 @@ public class ScoreWellController {
 		return new ModelAndView("career");
 	}
 	
+	@RequestMapping(value = { "/dash" })
+	public ModelAndView dashboard(HttpServletRequest request, HttpServletResponse response, Model model) {
+		System.out.println("Welcome to About Section");
+		model.addAttribute("isDataAvail", "YES");
+		
+		return new ModelAndView("user/user-panel");
+	}
+	
 	@RequestMapping(value = { "/daily-questions" })
 	public ModelAndView iasDailyQuestionPageController(HttpServletRequest request, HttpServletResponse response, Model model) {
 		

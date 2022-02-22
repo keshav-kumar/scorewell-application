@@ -1,279 +1,160 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/common/dashboard-layout/dash-layout">
 <head>
-<title>Score Well - An Institute for Civil Services Examination</title>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="css/layout.css" rel="stylesheet" type="text/css" media="all">
-<!-- <link href="css/about.css" rel="stylesheet" type="text/css" media="all"> -->
-<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap4/bootstrap.min.css"> -->
-<link rel="stylesheet" type="text/css" href="css/custom.css">
-<link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
 
 </head>
-<body id="top">
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<div class="wrapper row0">
-		<header id="header" class="hoc">
-			<div id="logo" class="fl_left">
-				<h1>
-					<a href="/home">Score Well</a>
-				</h1>
-			</div>
-			<!-- <div id="logo" class="fl_left">
-						<img src="img/logo.png" alt="">
-					</div> -->
-			<div class="fl_right">
-			
-				<form th:action="@{/logout}" method="get">
-					<button class="logout-btn btn-md btn-danger btn-block" name="registration" type="Submit">Logout</button>
-				</form>
-				
-			</div>
-		</header>
-	</div>
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<div class="wrapper row1">
-		<div id="topbar" class="clear">
-			<nav id="mainav" class="fl_left">
-				<ul class="clear">
-					<li><a href="/home">Home</a></li>
-					<li><a href="/about">About us</a></li>
-					<li><a href="/course-info">Courses</a></li>
-					<li><a href="/career">Careers</a></li>
-					<li><a href="/contact">Contact</a></li>
-					<!-- <li><a href="/resource">Resource</a></li> -->
-				</ul>
-			</nav>
-			<!-- <div id="search" class="fl_right">
-				<form class="clear" method="post" action="#">
-					<fieldset>
-						<legend>Search:</legend>
-						<input type="text" value="" placeholder="Search Here">
-						<button class="fa fa-search" type="submit" title="Search">
-							<em>Search</em>
-						</button>
-					</fieldset>
-				</form>
-			</div> -->
-		</div>
-	</div>
-	
+<body>
 
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<div class="wrapper row2">
-		<div class="overlay">
-			<div id="breadcrumb" class="clear">
-				<ul>
-					<li><a href="/home">Home</a></li>
-					<li><a href="/daily-questions?course=IAS">IAS question</a></li>
-					<li><a href="/set-list">Set List</a></li>
-				</ul>
-			</div>
-		</div>
+<div layout:fragment="content">
 
-	</div>
 
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Dashboard</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard v1</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
-	<div class="wrapper row3">
-		<main class="container clear"> <!-- main body --> <!-- ################################################################################################ -->
-		<div class="sidebar one_quarter first">
-			<!-- ################################################################################################ -->
-			<div class="sdb_holder">
-				<h6>Evaluated Answer Sheets</h6>
-				<form action="/set-list" method="get">
-					
-					<div>
-						&nbsp;<label for="name">Phone No. <span>*</span></label> <input
-							type="text" name="phone" id="phone" value="" size="22">
-					</div>
-					<div>
-						&nbsp;<label for="email">Email <span>*</span></label> <input type="text"
-							name="email" id="email" value="" size="22">
-					</div>
-					<div>
-						&nbsp;<input type="submit" value="Submit" id="submit">
-						<span id="result"></span>
-					</div>
-				</form>
-			</div>
-			<!-- ################################################################################################ -->
-		</div>
-		<!-- ################################################################################################ -->
-		<!-- ################################################################################################ -->
-		<div class="content three_quarter">
-			<!-- ################################################################################################ -->
-			<h1 class="text-center"><B>Score Well Answer Writing Program</B></h1>
-			
-			<div id="gen_study">
-				<div id="comments">
-					
-					<h2>Question Sets</h2>
-					<ul>
-						<div class="scrollable">
-							<table>
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3>150</h3>
+
+                            <p>New Orders</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-bag"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                            <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+                            <p>Bounce Rate</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-stats-bars"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-warning">
+                        <div class="inner">
+                            <h3>44</h3>
+
+                            <p>User Registrations</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-danger">
+                        <div class="inner">
+                            <h3>65</h3>
+
+                            <p>Unique Visitors</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-pie-graph"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+            </div>
+        </div>
+    </section>
+    <!-- End Main content -->
+	<div class="col-md-12">
+		<div class="card">
+			<div class="card-header"><h3>Question Sets</h3></div>
+			<div class="card-body">
+						<table id="example" class="table table-striped" style="width:100%">
 								<thead>
 									<tr>
 										<th>User Name</th>
 						              	<th>Set Name</th>
 						              	<th>Submitted Answer</th>
-						              	<th>Reviewed</th>
+						              	<th>Review Comment</th>
+						              	<th>Reviewed File</th>
+						              	<th>Status</th>
 						            </tr>
-						            <tbody>
-						            	<tr th:if="${sets.empty}">
-						            		<td colspan="4"> No Answers uploaded yet. </td>
-						            	</tr>
-						            	<tr th:each="sets : ${sets}">
-								            <td><span th:text="${sets.userName}"> User Name </span></td>
-								            <td><span th:text="${sets.setName}"> Set Name </span></td>
-								            <td><a th:href="@{/download/answer/file/{fileName}(fileName=${sets.fileName})}" target="_blank"><font color="green">Download Answer</font></a></td>
-
-											<div th:if="${sets.evaluated}">
-
-												<div th:if="${sets.reviewComment != null}">
-													<td>
-														<a th:href="@{/reviewcomment(name=${sets.userName}, phone=${sets.phone}, email=${sets.emailId}, setName=${sets.setName})}"><font color="green">View Comment</font></a>
-	
-														<!-- <a href="/reviewcomment?name=${sets.userName}&phone=${sets.phone}&email=${sets.emailId}&setName=${sets.setName}"><font
-															color="green">View Comment</font></a></td> -->
+						          </thead>
+						          <tbody>
+				            			<tr th:each="set : ${sets}">
+				            				<td><span th:text="${set.userName}" th:remove="tag"></span></td>
+							              	<td><span th:text="${set.setName}" th:remove="tag"></span></td>
+							              	<td><a type='button' href="download/answer/file/${set.fileName}" class="add_question_button" target="_blank">Download Answer</a></td>
+							              	<td>
+							              		<div th:if="${set.reviewComment}">
+												   <span th:text="${set.reviewComment}" th:remove="tag"></span>
 												</div>
-												<div th:unless="${sets.reviewComment != null}">
-													<td><a th:href="@{/download/reviewed/file/{fileName}(fileName=${sets.fileName})}" target="_blank"><font color="green">Download Review</font></a></td>
-												
-													<!-- <td>
-													<a type='button' href="download/reviewed/file/${sets.fileName}" class="add_question_button" target="_blank"><font color="green">Download Review</font></a>
-													</td> -->
+												<!-- ELSE -->
+												<div th:unless="${set.reviewComment}">
+												  	No Comment
 												</div>
-
-											</div>
-										</tr>
-						            
-						            </tbody>
-						            
-						            
-						            
-						            
-						            
-						            <!-- <c:forEach var="sets" items="${sets}">
-				            			<tr>
-				            				<td>${sets.userName}</td>
-							              	<td>${sets.setName}</td>
-							              	<td><a type='button' href="download/answer/file/${sets.fileName}" class="add_question_button" target="_blank">Download Answer</a></td>
-						              		<c:choose>
-							              		<c:when test="${sets.evaluated == true }">
-							              			<c:choose>
-							              				<c:when test="${empty sets.reviewComment}">
-							              				<td><a type='button' href="download/reviewed/file/${sets.fileName}" class="add_question_button" target="_blank"><font color="green">Download Review</font></a></td>
-							              				</c:when>
-							              				<c:otherwise>
-															<td><a
-																href="/reviewcomment?name=${sets.userName}&phone=${sets.phone}&email=${sets.emailId}&setName=${sets.setName}"><font
-																	color="green">View Comment</font></a></td>
-														</c:otherwise>
-							              			</c:choose>
-								              	</c:when>
-								              	<c:otherwise>
-										            <td>Review Pending.</td>
-									         	</c:otherwise>
-						              		</c:choose>
+							              	</td>
+							              	<td>
+							              		<div th:if="${set.reviewComment}">
+												   <a href="/reviewcomment?name=${sets.userName}&phone=${sets.phone}&email=${sets.emailId}&setName=${sets.setName}"><font
+																	color="green">Download File</font></a>
+												</div>
+												<!-- ELSE -->
+												<div th:unless="${set.reviewComment}">
+												  	No File Found
+												</div>
+							              	</td>
+							              	<td>
+							              		<div th:if="${set.reviewComment}">
+												   Review Completed
+												</div>
+												<!-- ELSE -->
+												<div th:unless="${set.reviewComment}">
+												  	Review Pending
+												</div>
+							              	</td>
 						            	</tr>
-						            </c:forEach> -->
-								</thead>
+						          </tbody>
 							</table>
-						</div>
-					</ul>
-				</div>
 			</div>
-			<!-- ################################################################################################ -->
-		</div>
-		<!-- ################################################################################################ -->
-		<!-- / main body -->
-		<div class="clear"></div>
-		</main>
-	</div>
-	
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	
-	
-	<div class="wrapper row5">
-		<footer id="footer" class="clear">
-			<!-- ################################################################################################ -->
-			<div class="one_third first">
-				<h6 class="title">Address</h6>
-				<address class="btmspace-15">
-					Score Well<br>Sector-11<br>Dwarka, New Delhi <br> Delhi (India), 110075
-				</address>
-				<ul class="nospace">
-					<li class="btmspace-10"><span class="fa fa-phone"></span> 8092480750</li>
-					<li><span class="fa fa-envelope-o"></span> teamscorewell@gmail.com</li>
-				</ul>
-			</div>
-			<div class="one_third">
-				<h6 class="title">Quick Links</h6>
-				<ul class="nospace linklist">
-					<li><a href="/home">Home</a></li>
-					<li><a href="/about">About us</a></li>
-					<li><a href="/course-info">Courses</a></li>
-					<li><a href="/career">Careers</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
-			</div>
-			<div class="one_third">
-			
-				<!-- <div id="logo" class="fl_left">
-					<h1>
-						<a href="/home">Score Well</a>
-					</h1>
-					
-				</div> -->
-				
-				<div class="footer_section footer_about">
-						<div class="footer_logo_text">Score<span> Well</span></div>
-						<div class="footer_social">
-							<ul class="nospace linklist">
-								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
-					</div>
-			</div>
-		</footer>
-	</div>
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<div class="wrapper row6">
-		<div id="copyright" class="clear">
-			<!-- ################################################################################################ -->
-			<p class="fl_left">
-				Copyright &copy; 2019 - All Rights Reserved - <a href="/home">Score Well</a>
-			</p>
-			<!-- ################################################################################################ -->
 		</div>
 	</div>
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
-	<!-- JAVASCRIPTS -->
-	<script src="js/jquery.js"></script>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/jquery.backtotop.js"></script>
-	<script src="js/jquery.mobilemenu.js"></script>
-<!-- 	<script src="js/setList.js"></script> -->
-	
+
+</div>
+
 </body>
 </html>

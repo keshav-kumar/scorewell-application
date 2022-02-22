@@ -1,255 +1,99 @@
-
-	<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/common/dashboard-layout/dash-layout">
 <head>
-<title>Score Well - An Institute for Civil Services Examination</title>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<link href="css/layout.css" rel="stylesheet" type="text/css" media="all">
-<!-- <link href="css/about.css" rel="stylesheet" type="text/css" media="all"> -->
-<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap4/bootstrap.min.css"> -->
-<link rel="stylesheet" type="text/css" href="css/custom.css">
-<link rel="stylesheet" type="text/css" href="css/responsive.css">
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
 
 </head>
-<body id="top">
-	
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<div class="wrapper row0">
-		<header id="header" class="hoc">
-			<div id="logo" class="fl_left">
-				<h1>
-					<a href="/home">Score Well</a>
-				</h1>
-			</div>
-			<!-- <div id="logo" class="fl_left">
-						<img src="img/logo.png" alt="">
-					</div> -->
-			<div class="fl_right">
-				<form th:action="@{/logout}" method="get">
-					<button class="logout-btn btn-md btn-danger btn-block" name="registration" type="Submit">Logout</button>
-				</form>
-			</div>
-		</header>
-	</div>
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<div class="wrapper row1">
-		<div id="topbar" class="clear">
-			<nav id="mainav" class="fl_left">
-				<ul class="clear">
-					<li><a href="/home">Home</a></li>
-					<li><a href="/about">About us</a></li>
-					<li><a href="/course-info">Courses</a></li>
-					<li><a href="/career">Careers</a></li>
-					<li><a href="/contact">Contact</a></li>
-					<!-- <li><a href="/resource">Resource</a></li> -->
-				</ul>
-			</nav>
-			<!-- <div id="search" class="fl_right">
-				<form class="clear" method="post" action="#">
-					<fieldset>
-						<legend>Search:</legend>
-						<input type="text" value="" placeholder="Search Here">
-						<button class="fa fa-search" type="submit" title="Search">
-							<em>Search</em>
-						</button>
-					</fieldset>
-				</form>
-			</div> -->
-		</div>
-	</div>
-	
+<body>
 
-	<c:set var="queSet" value="${questionSet}" />
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<div class="wrapper row2">
-		<div class="overlay">
-			<div id="breadcrumb" class="clear">
-				<ul>
-					<li><a href="/home">Home</a></li>
-					<li><a href="/daily-questions">IAS question</a></li>
-					<li><a href="/question-set">Question set</a></li>
-				</ul>
-			</div>
-		</div>
+<div layout:fragment="content">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Dashboard</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard v1</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
-	</div>
-
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<div class="wrapper row3">
-
-	<section id="cta" class="clear">
-		<div class="one_third first">
-			<h2 class="heading">
-				<font color="red"><B>Course Name : <label th:text="${questionSet.course}"></label></B></font> 
-				<!-- <input type="hidden" id="courseName" value="${questionSet.course}"> -->
-				<input type="hidden" id="courseName" th:value="${questionSet.course}"/>
-			</h2>
-		</div>
-		<div class="one_third">
-			<h2 class="heading">
-				<font color="red"><B>Subject Name : <label th:text="${questionSet.subjectName}"></label></B></font> 
-				<!-- <input type="hidden" id="subjectName" value= th:text="${questionSet.subjectName}"> -->
-				<input type="hidden" id="subjectName" th:value="${questionSet.subjectName}"/>
-			</h2>
-		</div>
-		<div class="one_third">
-			<h2 class="heading">
-				<font color="red"><B>Set Name : <label th:text="${questionSet.setName}"></label></B></font> 
-				<!-- <input type="hidden" id="setName" value="${questionSet.setName}"> -->
-				<input type="hidden" id="setName" th:value="${questionSet.setName}"/>
-			</h2>
-		</div>
-	</section>
-
-	<div class="wrapper content">
-			<section id="cta" class="clear"> 
-				<ol>
-					<div th:each="questionDetail : ${questionSet.questions}">
-						<li style="font-size:20px";><h1 th:text="${questionDetail.question}"></h1></li>
-					</div>
-				</ol>
-			</section>
-		</div>
-		
-		<section id="cta" class="clear">
-			<div id="content">
-				<h2>Submit Your Answers</h2>
-	
-				<!-- <form th:action="@{/posts}" th:object="${post}" method="post">
-					<div class="one_quarter first">
-						<label for="name">Name <span>*</span></label> <input type="text"
-							name="name" id="name" value="" size="22" required="required">
-					</div>
-					<div class="one_quarter">
-						<label for="phone">Phone No. <span>*</span></label> <input type="text"
-							name="phone" id="phone" value="" size="22" required="required">
-					</div>
-					<div class="one_quarter">
-						<label for="email">Email <span>*</span></label> <input type="text"
-							name="email" id="email" value="" size="22" required="required">
-					</div>
-				
-				
-				</form> -->
-	
-	
-	
-				<form method="POST" enctype="multipart/form-data" id="fileUploadForm">
-					<!-- <input type="hidden" value="${questionSet.setName}" id="setName" name="setName"/> -->
-					<input type="hidden" id="setName" th:value="${questionSet.setName}" name="setName"/>
-					<div class="one_quarter first">
-						<label for="name">Name <span>*</span></label> <input type="text"
-							name="name" id="name" value="" size="22" required="required">
-					</div>
-					<div class="one_quarter">
-						<label for="phone">Phone No. <span>*</span></label> <input type="text"
-							name="phone" id="phone" value="" size="22" required="required">
-					</div>
-					<div class="one_quarter">
-						<label for="email">Email <span>*</span></label> <input type="text"
-							name="email" id="email" value="" size="22" required="required">
-					</div>
-					<div class="one_quarter">
-						<label for="upload">Upload <span>*</span></label> 
-						<input id="upload" type="file" name="file" value="Upload File">
-					</div>
-					<div>
-						&nbsp; <input type="submit" value="Submit" id="submit">
-						<span id="result"></span>
-					</div>
-				</form>
-			</div>
-		</section>
-		
-	</div>
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<div class="wrapper row3">
-		<section id="cta">
-		</section>
-	</div>
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-
-	<div class="wrapper row5">
-		<footer id="footer" class="clear">
-			<!-- ################################################################################################ -->
-			<div class="one_third first">
-				<h6 class="title">Address</h6>
-				<address class="btmspace-15">
-					Score Well<br>Sector-11<br>Dwarka, New Delhi <br> Delhi (India), 110075
-				</address>
-				<ul class="nospace">
-					<li class="btmspace-10"><span class="fa fa-phone"></span> 8092480750</li>
-					<li><span class="fa fa-envelope-o"></span> teamscorewell@gmail.com</li>
-				</ul>
-			</div>
-			<div class="one_third">
-				<h6 class="title">Quick Links</h6>
-				<ul class="nospace linklist">
-					<li><a href="/home">Home</a></li>
-					<li><a href="/about">About us</a></li>
-					<li><a href="/course-info">Courses</a></li>
-					<li><a href="/career">Careers</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
-			</div>
-			<div class="one_third">
-			
-				<!-- <div id="logo" class="fl_left">
-					<h1>
-						<a href="/home">Score Well</a>
-					</h1>
-					
-				</div> -->
-				
-				<div class="footer_section footer_about">
-						<div class="footer_logo_text">Score<span> Well</span></div>
-						<div class="footer_social">
-							<ul class="nospace linklist">
-								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							</ul>
+    <!-- Main content -->
+    <!-- End Main content -->
+	<div class="col-md-12">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header"><h4 class="m-0">Test Paper</h4></div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="p-3 border rounded-1 bg-light"><b>Course Name:</b> <span th:text="${questionSet.course}" th:remove="tag"></span></div>
+							</div>
+							<div class="col-md-4">
+								<div class="p-3 border rounded-1 bg-light"><b>Subject Name:</b> <span th:text="${questionSet.subjectName}" th:remove="tag"></span></div>
+							</div>
+							<div class="col-md-4">
+								<div class="p-3 border rounded-1 bg-light"><b>Set Name:</b> <span th:text="${questionSet.setName}" th:remove="tag"></span></div>
+							</div>
+						</div>
+						<div class="row mt-4" th:each="queSetDesc :${questionSet}">
+							<div class="col-md-6 my-1" th:each="questionDetail : ${queSetDesc.questions}">
+								<div class="px-2 py-3 border rounded-1">
+									<p class="ques"><b>Question:</b> <span th:text="${questionDetail.question}" th:remove="tag"></span></p>
+								</div>
+							</div>
 						</div>
 					</div>
+				</div>
 			</div>
-		</footer>
-	</div>
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<div class="wrapper row6">
-		<div id="copyright" class="clear">
-			<!-- ################################################################################################ -->
-			<p class="fl_left">
-				Copyright &copy; 2019 - All Rights Reserved - <a href="/home">Score Well</a>
-			</p>
-			<!-- ################################################################################################ -->
+			<div class="col-md-12 mt-4">
+				<div class="card">
+					<div class="card-header"><h4 class="m-0">Submit Your Answers</h4></div>
+					<div class="card-body">
+						<form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+							<div class="row ques-form">
+								<div class="col-md-6 mt-2">
+									<label for="name">Name <span>*</span></label> 
+									<input type="text" name="name" id="name" value="" class="form-control" size="22" required="required" placeholder="Enter Name">
+									<input type="hidden" value="${questionSet.setName}" id="setName" name="setName" />
+								</div>
+								<div class="col-md-6 mt-2">
+									<label for="phone">Phone No. <span>*</span></label> 
+									<input type="text" name="phone" id="phone" value="" class="form-control" required="required" placeholder="Enter Phone Number">
+								</div>
+								<div class="col-md-6 mt-2">
+									<label for="email">Email <span>*</span></label> 
+									<input type="text" name="email" id="email" value="" class="form-control" required="required" placeholder="Enter Email Address">
+								</div>
+								<div class="col-md-6 mt-2">
+									<label for="upload">Upload <span>*</span></label> 
+									<input id="upload" type="file" class="form-control" name="file" value="Upload File">
+								</div>
+								
+								<div class="col-md-12 text-center mt-5">
+									<input type="submit" value="Submit" id="submit" class="btn btn-primary p-2 px-5">
+									<span id="result"></span>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<!-- ################################################################################################ -->
-	<a id="backtotop" href="#top"><i class="fa fa-chevron-up"></i></a>
-	<!-- JAVASCRIPTS -->
-	<script src="js/jquery.js"></script>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/jquery.backtotop.js"></script>
-	<script src="js/jquery.mobilemenu.js"></script>
-	
-	<script src="js/question-set.js"></script>
+
+</div>
+
 </body>
 </html>
