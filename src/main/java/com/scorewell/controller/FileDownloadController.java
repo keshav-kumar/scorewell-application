@@ -48,7 +48,7 @@ public class FileDownloadController {
 //		}
 	}
 	
-	@RequestMapping("/answer/file/{fileName:.+}")
+	@RequestMapping("/answer/file/{fileName}")
 	public void downloadAnsweresource(HttpServletRequest request, HttpServletResponse response,
 			@PathVariable("fileName") String fileName) throws IOException {
 
@@ -57,7 +57,7 @@ public class FileDownloadController {
 		fileDownloadOperation(response, file);
 	}
 	
-	@RequestMapping("/reviewed/file/{fileName:.+}")
+	@RequestMapping("/reviewed/file/{fileName}")
 	public void downloadReviewResource(HttpServletRequest request, HttpServletResponse response,
 			@PathVariable("fileName") String fileName) throws IOException {
 

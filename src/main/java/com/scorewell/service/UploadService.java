@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,6 +16,8 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.scorewell.model.User;
+
 //import com.scorewell.controller.DataHandler;
 
 @Service
@@ -24,7 +27,7 @@ public class UploadService {
 	@Autowired
 	private Environment env;
 
-	public String saveUploadedPdfFiles(List<MultipartFile> files, HttpServletRequest request, String uploadType) {
+	public String saveUploadedPdfFiles(List<MultipartFile> files, HttpServletRequest request, String uploadType, User user) {
 
 		String filePath = "";
 		for (MultipartFile file : files) {
@@ -34,12 +37,9 @@ public class UploadService {
 					byte[] bytes = file.getBytes();
 
 					String subDir_fileName = "";
-//				if (uploadType.equals("Q"))
-//					subDir_fileName = env.getProperty("upload.question.dir") + file.getOriginalFilename();
-//				else 
 					if (uploadType.equals("A")) {
-						subDir_fileName = env.getProperty("upload.answer.dir") + request.getParameter("phone") + "_"
-								+ request.getParameter("email") + "_" + request.getParameter("setName") + ".pdf";
+						subDir_fileName = env.getProperty("upload.answer.dir") + user.getUserName()
+								 + "_" +UUID.randomUUID()+"_"+request.getParameter("setName") + ".pdf";
 						logger.info("Saved the answersheet {}, uploaded by {} of Set {}", subDir_fileName,
 								request.getParameter("email"),request.getParameter("setName"));
 					}

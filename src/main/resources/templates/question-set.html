@@ -48,9 +48,10 @@
 							</div>
 						</div>
 						<div class="row mt-4" th:each="queSetDesc :${questionSet}">
-							<div class="col-md-6 my-1" th:each="questionDetail : ${queSetDesc.questions}">
+							<div class="col-md-12 my-1" th:each="questionDetail : ${queSetDesc.questions}">
 								<div class="px-2 py-3 border rounded-1">
-									<p class="ques"><b>Question:</b> <span th:text="${questionDetail.question}" th:remove="tag"></span></p>
+									<p class="ques"><b>Question <span th:text="${questionDetailStat.index}+1" th:remove="tag"></span>:</b></p> 
+									<p style="margin: 0;"><span th:text="${questionDetail.question}" th:remove="tag"></span></p>
 								</div>
 							</div>
 						</div>
@@ -61,29 +62,22 @@
 				<div class="card">
 					<div class="card-header"><h4 class="m-0">Submit Your Answers</h4></div>
 					<div class="card-body">
-						<form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+						<div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"></div>
+						<div id="result" class=''></div>
+						<form method="POST" enctype="multipart/form-data" id="fileUploadForm" th:action="@{/sw/api/upload-answer}">
 							<div class="row ques-form">
-								<div class="col-md-6 mt-2">
-									<label for="name">Name <span>*</span></label> 
-									<input type="text" name="name" id="name" value="" class="form-control" size="22" required="required" placeholder="Enter Name">
-									<input type="hidden" value="${questionSet.setName}" id="setName" name="setName" />
-								</div>
-								<div class="col-md-6 mt-2">
-									<label for="phone">Phone No. <span>*</span></label> 
-									<input type="text" name="phone" id="phone" value="" class="form-control" required="required" placeholder="Enter Phone Number">
-								</div>
-								<div class="col-md-6 mt-2">
-									<label for="email">Email <span>*</span></label> 
-									<input type="text" name="email" id="email" value="" class="form-control" required="required" placeholder="Enter Email Address">
-								</div>
+								<input type="hidden" name="courseName" th:value="${questionSet.course}" />
+								<input type="hidden" name="subjectName" th:value="${questionSet.subjectName}" />
+								<input type="hidden" name="setName" th:value="${questionSet.setName}" />
+								
 								<div class="col-md-6 mt-2">
 									<label for="upload">Upload <span>*</span></label> 
 									<input id="upload" type="file" class="form-control" name="file" value="Upload File">
 								</div>
 								
-								<div class="col-md-12 text-center mt-5">
+								<div class="col-md-6 mt-4 pt-3">
 									<input type="submit" value="Submit" id="submit" class="btn btn-primary p-2 px-5">
-									<span id="result"></span>
+									
 								</div>
 							</div>
 						</form>
@@ -94,6 +88,8 @@
 	</div>
 
 </div>
-
+<div layout:fragment="script" th:remove="tag">
+	<script th:src="@{/js/question-set.js}"></script>
+</div>
 </body>
 </html>

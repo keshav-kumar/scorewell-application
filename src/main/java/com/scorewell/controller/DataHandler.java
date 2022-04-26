@@ -1,9 +1,12 @@
 package com.scorewell.controller;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.util.Arrays;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,10 +26,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.scorewell.login.service.UserService;
+import com.scorewell.model.User;
 import com.scorewell.service.DaoService;
 import com.scorewell.service.QuestionSetService;
 import com.scorewell.service.UploadService;
@@ -105,35 +110,48 @@ public class DataHandler {
 	}
 
 	@PostMapping("/api/upload-answer")
-	public ResponseEntity<?> uploadAnswer(HttpServletRequest request, HttpServletResponse response,
-			@RequestParam("file") MultipartFile uploadfile) {
-
+	public Map<String, Object> uploadAnswer(HttpServletRequest request, HttpServletResponse response,
+			@RequestParam("file") MultipartFile uploadfile, Principal principal, RedirectAttributes redirectAttributes) {
+		Map<String, Object> res = new HashMap<>();
 		if (uploadfile.isEmpty()) {
-			return new ResponseEntity("please select a file!", HttpStatus.BAD_REQUEST);
+			res.put("error", "Please select a file!");
+			return res;
 		}
-		
-		String savedFilePath = uploadService.saveUploadedPdfFiles(Arrays.asList(uploadfile), request, "A");
-		String questionsetId = questionSetService.saveUserActivity(request, savedFilePath);
-
-		return new ResponseEntity("Successfully uploaded - " + uploadfile.getOriginalFilename(), new HttpHeaders(),
-				HttpStatus.OK);
-
+		if(checkMimeType(uploadfile.getContentType())) { 
+			res.put("error", "Invalid File Format, Please Upload only (PDF, JPG, JPEG or PNG) Files");
+			return res;
+		}
+		User user = userService.findUserByUserName(principal.getName());
+		String savedFilePath = uploadService.saveUploadedPdfFiles(Arrays.asList(uploadfile), request, "A", user);
+		questionSetService.saveUserActivity(request, savedFilePath, user);
+		res.put("success", "Successfully uploaded - " + uploadfile.getOriginalFilename());
+		return res;
 	}
 	
 	@PostMapping("/api/reviewed-upload")
 	public ResponseEntity<?> uploadReviewed(HttpServletRequest request, HttpServletResponse response,
-			@RequestParam("file") MultipartFile uploadfile) {
+			@RequestParam("file") MultipartFile uploadfile, Principal principal) {
 
 		logger.info("Reviewed answer uploading.");
 
 		if (uploadfile.isEmpty() && request.getParameter("reviewComment").isEmpty()) {
 			return new ResponseEntity("Please select a file or put some review comment !", HttpStatus.BAD_REQUEST);
 		}
-
+		User user = userService.findUserByUserName(principal.getName());
 		questionSetService.updateUserActivity(request, !uploadfile.isEmpty());
-		String savedFilePath = uploadService.saveUploadedPdfFiles(Arrays.asList(uploadfile), request, "R");
+		String savedFilePath = uploadService.saveUploadedPdfFiles(Arrays.asList(uploadfile), request, "R", user);
 
 		return new ResponseEntity("Review saved Successfully", new HttpHeaders(), HttpStatus.OK);
 
+	}
+	
+	private boolean checkMimeType(String contentType) {
+		String[] allowedMimeType = {"image/png", "image/jpg", "image/jpeg", "application/pdf"};
+        for (int i = 0; i < allowedMimeType.length; i++) {
+        	if(allowedMimeType[i].equalsIgnoreCase(contentType)) {
+        		return false;
+        	}
+		}
+		return true;
 	}
 }

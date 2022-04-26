@@ -20,6 +20,7 @@ import com.google.gson.JsonObject;
 import com.scorewell.dto.Question;
 import com.scorewell.dto.QuestionSet;
 import com.scorewell.dto.UserActivity;
+import com.scorewell.model.User;
 
 @Service
 public class QuestionSetService {
@@ -70,16 +71,16 @@ public class QuestionSetService {
 		return daoService.createQuestionSet(questionSet);
 	}
 	
-	public String saveUserActivity(HttpServletRequest request, String filePath) {
+	public String saveUserActivity(HttpServletRequest request, String filePath, User user) {
 		
 		UserActivity userActivity = new UserActivity();
-		userActivity.setUserName(request.getParameter("name"));
-		userActivity.setEmailId(request.getParameter("email"));
-		userActivity.setPhone(request.getParameter("phone"));
+		userActivity.setUserName(user.getName());
+		userActivity.setEmailId(user.getEmail());
+		userActivity.setPhone("");
 		userActivity.setCourse(request.getParameter("courseName"));
 		userActivity.setSubjectName(request.getParameter("subjectName"));
 		userActivity.setSetName(request.getParameter("setName"));
-		userActivity.setFileName(filePath.substring(filePath.lastIndexOf("/")+1));
+		userActivity.setFileName(filePath.substring(filePath.lastIndexOf("\\")+1));
 		userActivity.setFilePath(filePath);
 		userActivity.setReviwedUploaded(false);
 		userActivity.setEvaluated(false);

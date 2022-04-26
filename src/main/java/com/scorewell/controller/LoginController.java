@@ -47,11 +47,18 @@ public class LoginController {
     	
         ModelAndView modelAndView = new ModelAndView();
         User userExists = userService.findUserByUserName(user.getUserName());
+        User emailExists = userService.findUserByEmail(user.getEmail());
         if (userExists != null) {
         	logger.error("User : {} already registered",user.getUserName());
             bindingResult
                     .rejectValue("userName", "error.user",
                             "There is already a user registered with the user name provided");
+        }
+        if (emailExists != null) {
+        	logger.error("User : {} already registered",user.getUserName());
+            bindingResult
+                    .rejectValue("email", "error.user",
+                            "There is already a user registered with the email provided");
         }
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("registration");
@@ -59,6 +66,7 @@ public class LoginController {
             userService.saveUser(user);
             logger.info("New User {} registered on application.",user.getUserName());
             modelAndView.addObject("successMessage", "User has been registered successfully");
+            modelAndView.addObject("alertClass", "alert-success");
             modelAndView.addObject("user", new User());
             modelAndView.setViewName("registration");
         }

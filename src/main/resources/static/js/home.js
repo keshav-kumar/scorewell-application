@@ -3,19 +3,7 @@ $(document).ready(function() {
 
 	$('.logincontainer').slideToggle("hide");
 
-	$('#subscribe').click(function(e) {
-		e.preventDefault();
-		$.ajax({
-			type: "POST",
-			url: '/sw/save-subscriber',
-			data: {
-				userName: $('#subscrib_email').val()
-			},
-			success: function(response) {
-				$('#subscribeResult').html(response);
-			},
-		});
-	});
+	
 
 
 	$('#test-series').click(function() {
@@ -36,4 +24,22 @@ $(document).ready(function() {
 
 
 
+});
+
+$('#subscribe').click(function(e) {
+var userinput = $('#subscrib_email').val();
+var pattern = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i
+	e.preventDefault();
+	if(pattern.test(userinput)) {
+		$.ajax({
+			type: "POST",
+			url: '/sw/save-subscriber',
+			data: {
+				userName: userinput
+			},
+			success: function(response) {
+				alert(response)
+			},
+		});
+	}
 });

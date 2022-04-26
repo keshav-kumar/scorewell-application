@@ -31,12 +31,12 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <section class="content">
+    <!-- <section class="content">
         <div class="container-fluid">
-            <!-- Small boxes (Stat box) -->
+            Small boxes (Stat box)
             <div class="row">
                 <div class="col-lg-3 col-6">
-                    <!-- small box -->
+                    small box
                     <div class="small-box bg-info">
                         <div class="inner">
                             <h3>150</h3>
@@ -49,9 +49,9 @@
                         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <!-- ./col -->
+                ./col
                 <div class="col-lg-3 col-6">
-                    <!-- small box -->
+                    small box
                     <div class="small-box bg-success">
                         <div class="inner">
                             <h3>53<sup style="font-size: 20px">%</sup></h3>
@@ -64,9 +64,9 @@
                         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <!-- ./col -->
+                ./col
                 <div class="col-lg-3 col-6">
-                    <!-- small box -->
+                    small box
                     <div class="small-box bg-warning">
                         <div class="inner">
                             <h3>44</h3>
@@ -79,9 +79,9 @@
                         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <!-- ./col -->
+                ./col
                 <div class="col-lg-3 col-6">
-                    <!-- small box -->
+                    small box
                     <div class="small-box bg-danger">
                         <div class="inner">
                             <h3>65</h3>
@@ -94,10 +94,10 @@
                         <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <!-- ./col -->
+                ./col
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- End Main content -->
 	<div class="col-md-12">
 		<div class="card">
@@ -118,7 +118,7 @@
 				            			<tr th:each="set : ${sets}">
 				            				<td><span th:text="${set.userName}" th:remove="tag"></span></td>
 							              	<td><span th:text="${set.setName}" th:remove="tag"></span></td>
-							              	<td><a type='button' href="download/answer/file/${set.fileName}" class="add_question_button" target="_blank">Download Answer</a></td>
+							              	<td><a type='button' th:href="@{download/answer/file/{filePath}(filePath=${set.fileName})}" class="add_question_button" target="_blank">Download Answer</a></td>
 							              	<td>
 							              		<div th:if="${set.reviewComment}">
 												   <span th:text="${set.reviewComment}" th:remove="tag"></span>
@@ -130,8 +130,7 @@
 							              	</td>
 							              	<td>
 							              		<div th:if="${set.reviewComment}">
-												   <a href="/reviewcomment?name=${sets.userName}&phone=${sets.phone}&email=${sets.emailId}&setName=${sets.setName}"><font
-																	color="green">Download File</font></a>
+													<a type='button' th:href="@{download/reviewed/file/{filePath}(filePath=${set.fileName})}" class="add_question_button" target="_blank">Download Answer</a>
 												</div>
 												<!-- ELSE -->
 												<div th:unless="${set.reviewComment}">

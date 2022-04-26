@@ -22,7 +22,6 @@
 
       <a th:href="@{/}" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
-        <span>ScoreWell</span>
       </a>
 
       <nav id="navbar" class="navbar">
@@ -53,7 +52,7 @@
 
 									<p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign
 										up</p>
-
+									<div th:if="${successMessage}" th:text="${successMessage}" th:class="${'alert ' + alertClass}"></div>
 									<form autocomplete="off" action="#" th:action="@{/registration}"
                   th:object="${user}" method="post" class="mx-1 mx-md-4"
                   role="form">
@@ -110,7 +109,7 @@
                     </div>
                 </div>
 
-                <h2><span class="text-success" th:utext="${successMessage}"></span></h2>
+                
 
             </form>
 
@@ -130,5 +129,6 @@
 			</div>
 		</div>
 	</section>
+	<div th:insert="common/footer.html :: foot"></div>
 </body>
 </html>

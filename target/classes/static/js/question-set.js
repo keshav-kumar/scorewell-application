@@ -2,12 +2,12 @@ $(document).ready(function () {
 
     $("#submit").click(function (event) {
         event.preventDefault();
+        
         upload_answer();
     });
 });
 
 function upload_answer() {
-
     // Get form
     var form = $('#fileUploadForm')[0];
 
@@ -30,7 +30,7 @@ function upload_answer() {
     if(name ==="" || phone === "" || email === ""){
     	$("#result").text("please fill the data.");
     }else{
-    
+    $("#result").removeClass();
     $.ajax({
         type: "POST",
         enctype: 'multipart/form-data',
@@ -42,11 +42,14 @@ function upload_answer() {
         cache: false,
         timeout: 600000,
         success: function (data) {
-
-            $("#result").text(data);
-            console.log("SUCCESS : ", data);
-            $("#submit").prop("disabled", true);
-
+			if(data.success) {
+				$("#result").text(data.success);
+				$("#result").addClass('alert alert-success');
+				$("#submit").prop("disabled", true);
+			} else {
+				$("#result").text(data.error);
+				$("#result").addClass('alert alert-danger');
+			}
         },
         error: function (e) {
 

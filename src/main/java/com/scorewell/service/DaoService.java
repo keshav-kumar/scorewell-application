@@ -422,7 +422,7 @@ public class DaoService {
 		
 		Map<String, Object> sortmap = new HashMap<>();
 		sortmap.put("releaseDate", -1);
-		sortmap.put("createTime", -1);
+		//sortmap.put("createTime", -1);
 		
 		List<Document> documents = mongoDBManager.getObjects(Constants.QUESTION_SET, 0, -1, queryParam, sortmap);
 		logger.info("Mongo Result size : {}",documents.size());

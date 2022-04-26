@@ -22,7 +22,6 @@
 
       <a th:href="@{/}" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
-        <span>ScoreWell</span>
       </a>
 
       <nav id="navbar" class="navbar">
@@ -55,7 +54,7 @@
 
 									<form th:action="@{/login}" method="POST" class="mx-1 mx-md-4">
 										<div align="center" class="alert alert-danger" th:if="${param.error}">
-								            <p style="font-size: 20; color: #FF1C19;">User Name or Password invalid, please verify</p>
+								            Invalid User Name or Password, Please check
 								        </div>
 										<div class="my-3">
 											<label for="user_name" class="form-label">Enter Username</label>
@@ -88,5 +87,6 @@
 			</div>
 		</div>
 	</section>
+	<div th:insert="common/footer.html :: foot"></div>
 </body>
 </html>
