@@ -46,7 +46,7 @@ public class AdminController {
 		return new ModelAndView("admin-questions");
 	}
 
-	@RequestMapping(value = { "/create-question" })
+	@RequestMapping(value = { "/admin/create-question" })
 	public ModelAndView createQuestionPageController(HttpServletRequest request, HttpServletResponse response,
 			Model model) {
 		return new ModelAndView("create_question");
