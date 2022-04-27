@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.scorewell.dto.QuestionSet;
 import com.scorewell.dto.UserActivity;
+import com.scorewell.login.service.UserService;
+import com.scorewell.model.User;
 import com.scorewell.service.DaoService;
 import com.scorewell.service.ScorewellService;
 
@@ -31,12 +34,17 @@ public class ScoreWellController {
 	@Autowired private Environment env;
 	@Autowired private ScorewellService scorewellService;
 	@Autowired private DaoService daoService;
+	@Autowired private UserService userService;
 
 	@RequestMapping(value = { "/", "/home" })
 	public ModelAndView homePageController(HttpServletRequest request, HttpServletResponse response, Model model) {
 		System.out.println("Welcome Scorewell Home page.");
 		model.addAttribute("title", "An Institute for Civil Services Examination");
-		
+				
+//		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//        User user = userService.findUserByUserName(auth.getName());
+//        System.out.println("USER NAme : "+user.getUserName());
+        
 		return new ModelAndView("home");
 	}
 	

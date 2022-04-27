@@ -46,13 +46,23 @@ public class LoginController {
     public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
     	
         ModelAndView modelAndView = new ModelAndView();
-        User userExists = userService.findUserByUserName(user.getUserName());
-        if (userExists != null) {
-        	logger.error("User : {} already registered",user.getUserName());
+//        User userExists = userService.findUserByUserName(user.getUserName());
+        User userExistsByEmail = userService.findUserByEmailId(user.getEmail());
+        if (userExistsByEmail != null) {
+        	logger.error("User EMAIL : {} already registered Email Id : {}",user.getUserName(), user.getEmail());
             bindingResult
                     .rejectValue("userName", "error.user",
                             "There is already a user registered with the user name provided");
         }
+//        if (userExistsByEmail != null) {
+//        	
+//        	System.out.println("EMAIL REGISTERED : "+user.getEmail());
+//        	
+//        	logger.error("User EmailId : {} already registered",user.getEmail());
+//            bindingResult
+//                    .rejectValue("email", "error.user",
+//                            "Email Id already registered");
+//        }
         if (bindingResult.hasErrors()) {
             modelAndView.setViewName("registration");
         } else {
