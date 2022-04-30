@@ -34,7 +34,6 @@ public class ScoreWellController {
 	@Autowired private Environment env;
 	@Autowired private ScorewellService scorewellService;
 	@Autowired private DaoService daoService;
-	@Autowired private UserService userService;
 
 	@RequestMapping(value = { "/", "/home" })
 	public ModelAndView homePageController(HttpServletRequest request, HttpServletResponse response, Model model) {
@@ -122,7 +121,6 @@ public class ScoreWellController {
 		
 		List<UserActivity> activitySetList = daoService.getUserActivity(request);
 		model.addAttribute("sets", activitySetList);
-		
 		return new ModelAndView("setList");
 	}
 	

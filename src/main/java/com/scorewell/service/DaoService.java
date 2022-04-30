@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -16,6 +17,8 @@ import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
@@ -33,6 +36,8 @@ import com.scorewell.db.MongoDBManager;
 import com.scorewell.dto.UserActivity;
 import com.scorewell.dto.UserRole;
 import com.scorewell.dto.UserSession;
+import com.scorewell.login.service.UserService;
+import com.scorewell.model.Role;
 import com.scorewell.model.User;
 import com.scorewell.utils.StringUtils;
 
@@ -42,6 +47,7 @@ public class DaoService {
 
 	private final Logger logger = LoggerFactory.getLogger(DaoService.class);
 	
+	@Autowired private UserService userService;
 //	private static String USER_INFO_COLLECTION = "user_info";
 //	private static String USER_ROLE_INFO_COLLECTION = "user_role_info";
 //	private static String USER_SESSION_COLLECTION = "user_session";
@@ -481,17 +487,21 @@ public class DaoService {
 		
 		Map<String, Object> queryParam = new HashMap<>();
 		
-//		if(request.getParameter("name")!=null && !request.getParameter("name").isEmpty())
-//			queryParam.put("userName", request.getParameter("name"));
-
-		if(request.getParameter("email")!=null && !request.getParameter("email").isEmpty())
-			queryParam.put("emailId", request.getParameter("email"));
-
-		if(request.getParameter("phone")!=null && !request.getParameter("phone").isEmpty())
-			queryParam.put("phone", request.getParameter("phone"));
-		
-		System.out.println("Search Param : "+queryParam);
-		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findUserByUserName(auth.getName());
+        Set<Role> roles = user.getRoles();
+        for (Role role : roles) {
+            System.out.println("USER ROLES : "+role.getRole());
+		}
+        
+        if(auth.getAuthorities().stream()
+                .anyMatch(r -> r.getAuthority().equals("USER"))) {
+        	
+        	queryParam.put("emailId", user.getEmail());
+        }
+        
+        logger.info("Search answers query for : "+user.getUserName() + "is : "+queryParam);
+        
 		Map<String, Object> sortmap = new HashMap<>();
 		sortmap.put("uploadDateTime", -1);
 		List<Document> documents = mongoDBManager.getObjects(Constants.USER_ACTIVITY, 0, -1, queryParam, sortmap);
