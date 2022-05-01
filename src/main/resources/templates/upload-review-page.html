@@ -89,7 +89,7 @@
 
 	</div>
 	<div layout:fragment="script" th:remove="tag">
-		<script src="js/upload-review-page.js"></script>
+		<script th:src="@{/js/upload-review-page.js}"></script>
 		<script>
 			$(function() {
 				$("#datepicker").datepicker();
