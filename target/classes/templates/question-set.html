@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="/common/dashboard-layout/dash-layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+
+</head>
+<body>
+
+<div layout:fragment="content">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Dashboard</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard v1</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <!-- End Main content -->
+	<div class="col-md-12">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header"><h4 class="m-0">Test Paper</h4></div>
+					<div class="card-body">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="p-3 border rounded-1 bg-light"><b>Course Name:</b> <span th:text="${questionSet.course}" th:remove="tag"></span></div>
+							</div>
+							<div class="col-md-4">
+								<div class="p-3 border rounded-1 bg-light"><b>Subject Name:</b> <span th:text="${questionSet.subjectName}" th:remove="tag"></span></div>
+							</div>
+							<div class="col-md-4">
+								<div class="p-3 border rounded-1 bg-light"><b>Set Name:</b> <span th:text="${questionSet.setName}" th:remove="tag"></span></div>
+							</div>
+						</div>
+						<div class="row mt-4" th:each="queSetDesc :${questionSet}">
+							<div class="col-md-12 my-1" th:each="questionDetail : ${queSetDesc.questions}">
+								<div class="px-2 py-3 border rounded-1">
+									<p class="ques"><b>Question <span th:text="${questionDetailStat.index}+1" th:remove="tag"></span>:</b></p> 
+									<p style="margin: 0;"><span th:text="${questionDetail.question}" th:remove="tag"></span></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12 mt-4">
+				<div class="card">
+					<div class="card-header"><h4 class="m-0">Submit Your Answers</h4></div>
+					<div class="card-body">
+						<div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"></div>
+						<div id="result" class=''></div>
+						<form method="POST" enctype="multipart/form-data" id="fileUploadForm" th:action="@{/sw/api/upload-answer}">
+							<div class="row ques-form">
+								<input type="hidden" name="courseName" th:value="${questionSet.course}" />
+								<input type="hidden" name="subjectName" th:value="${questionSet.subjectName}" />
+								<input type="hidden" name="setName" th:value="${questionSet.setName}" />
+								
+								<div class="col-md-6 mt-2">
+									<label for="upload">Upload <span>*</span></label> 
+									<input id="upload" type="file" class="form-control" name="file" value="Upload File">
+								</div>
+								
+								<div class="col-md-6 mt-4 pt-3">
+									<input type="submit" value="Submit" id="submit" class="btn btn-primary p-2 px-5">
+									
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<div layout:fragment="script" th:remove="tag">
+	<script th:src="@{/js/question-set.js}"></script>
+</div>
+</body>
+</html>

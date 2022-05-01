@@ -20,6 +20,7 @@ import com.scorewell.service.DaoService;
 
 
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
 
 	private final Logger logger = LoggerFactory.getLogger(AdminController.class);
@@ -36,7 +37,7 @@ public class AdminController {
 		return new ModelAndView("subscribers");
 	}
 	
-	@RequestMapping(value = { "/admin" })
+	@RequestMapping("/panel")
 	public ModelAndView adminPageController(HttpServletRequest request, HttpServletResponse response,
 			Model model) {
 
@@ -46,7 +47,7 @@ public class AdminController {
 		return new ModelAndView("admin-questions");
 	}
 
-	@RequestMapping(value = { "/admin/create-question" })
+	@RequestMapping(value = { "/create-question" })
 	public ModelAndView createQuestionPageController(HttpServletRequest request, HttpServletResponse response,
 			Model model) {
 		return new ModelAndView("create_question");
